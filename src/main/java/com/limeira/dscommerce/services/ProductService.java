@@ -1,6 +1,5 @@
 package com.limeira.dscommerce.services;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,5 +69,12 @@ public class ProductService {
 		return new ProductDTO(entity);
 	}	
 	
+	
+	@Transactional
+	public void delete(Long id) {
+		
+		repository.deleteById(id);
+		
+	}	
 	
 }
