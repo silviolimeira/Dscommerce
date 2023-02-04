@@ -2,12 +2,24 @@ package com.limeira.dscommerce.dto;
 
 import com.limeira.dscommerce.entities.Product;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
+
 public class ProductDTO {
 
 	private Long id;
+	
+	@Size(min = 3, max = 80, message = "Nome precisa ter de 3 a 80 caracteres")
+	@NotBlank(message = "Campo requerido")
 	private String name;
+	
 	private String description;
+	
+	@Positive(message = "O preço deve ser positivo.")
 	private Double price;
+	
+	@Size(min = 3, message = "Precisa ter no mínimo 10 caracteres.")
 	private String imgUrl;
 
 	public ProductDTO(Long id, String name, String description, Double price, String imgUrl) {
